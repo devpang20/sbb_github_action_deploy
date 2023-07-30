@@ -1,1 +1,1 @@
-## github action을 이용해서 서버 배포를 해보즈아
+## github action을 이용해서 서버 배포
