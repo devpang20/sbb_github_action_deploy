@@ -97,5 +97,5 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Docker run
         run: |
-          docker stop sbb-2 && docker rm sbb-2 && docker rmi sbb-2:latest
-          docker run -d -p 8011:8080 --name sbb-2 --restart always sbb-2:latest
+          docker stop sbb-1 && docker rm sbb-1 && docker rmi ghcr.io/${{ github.actor }}/sbb-1:latest
+          docker run -d -p 8011:8080 --name sbb-2 --restart always ghcr.io/${{ github.actor }}/sbb-1:latest
