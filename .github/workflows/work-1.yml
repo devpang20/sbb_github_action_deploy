@@ -6,15 +6,6 @@ on:
   push:
     branches: [ main ]
 
-permissions:
-  contents: read
-
-# 환경설정
-env:
-  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/sbb_github_action_deploy
-  VERSION: ${{ github.sha }}
-  NAME: go_cicd
-
 jobs:
   build:
     name: 빌드
