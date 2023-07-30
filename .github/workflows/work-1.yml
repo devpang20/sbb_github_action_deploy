@@ -80,8 +80,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ env.OWNER_LC }}/sbb-1:${{ needs.tag.outputs.tag_name }},
-            ghcr.io/${{ env.OWNER_LC }}/sbb-1:latest
+            ghcr.io/${{ env.OWNER_LC }}/sbb-2:${{ needs.tag.outputs.tag_name }},
+            ghcr.io/${{ env.OWNER_LC }}/sbb-2:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
   deploy:
@@ -97,5 +97,5 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Docker run
         run: |
-          docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ env.DOCKER_IMAGE }}:latest
-          docker run -d -p 8011:8080 --name go_cicd --restart always ${{ env.DOCKER_IMAGE }}:latest
+          docker stop sbb-2 && docker rm sbb-2 && docker rmi sbb-2:latest
+          docker run -d -p 8011:8080 --name sbb-2 --restart always sbb-2:latest
